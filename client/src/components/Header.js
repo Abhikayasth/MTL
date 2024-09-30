@@ -124,21 +124,21 @@ const Header = () => {
           <div className="hidden md:flex space-x-8">
             <Link
               smooth
-              to="#"
+              to="/"
               className="relative transition-colors hover:text-teal-500 group"
             >
               Home
             </Link>
             <Link
               smooth
-              to="#about-us"
+              to="/about-us"
               className="relative transition-colors hover:text-teal-500 group"
             >
               About Us
             </Link>
             <Link
               smooth
-              to="#services"
+              to="/services"
               className="relative transition-colors hover:text-teal-500 group"
             >
               Services
@@ -152,14 +152,14 @@ const Header = () => {
             </Link>
             <Link
               smooth
-              to="#testimonials"
+              to="/testimonials"
               className="relative transition-colors hover:text-teal-500 group"
             >
               Testimonials
             </Link>
             <Link
               smooth
-              to="#contact-us"
+              to="/contact-us"
               className="relative transition-colors hover:text-teal-500 group"
             >
               Contact Us
@@ -199,22 +199,22 @@ const Header = () => {
           </button>
         </div>
         <div className="mt-6 flex flex-col space-y-4">
-          <Link smooth to="#" className="text-lg font-semibold" onClick={toggleMenu}>
+          <Link smooth to="/" className="text-lg font-semibold" onClick={toggleMenu}>
             Home
           </Link>
-          <Link smooth to="#about-us" className="text-lg font-semibold" onClick={toggleMenu}>
+          <Link smooth to="/about-us" className="text-lg font-semibold" onClick={toggleMenu}>
             About Us
           </Link>
-          <Link smooth to="#services" className="text-lg font-semibold" onClick={toggleMenu}>
+          <Link smooth to="/services" className="text-lg font-semibold" onClick={toggleMenu}>
             Services
           </Link>
           <Link smooth to="/feedback" className="text-lg font-semibold" onClick={toggleMenu}>
             Feedback
           </Link>
-          <Link smooth to="#testimonials" className="text-lg font-semibold" onClick={toggleMenu}>
+          <Link smooth to="/testimonials" className="text-lg font-semibold" onClick={toggleMenu}>
             Testimonials
           </Link>
-          <Link smooth to="#contact-us" className="text-lg font-semibold" onClick={toggleMenu}>
+          <Link smooth to="/contact-us" className="text-lg font-semibold" onClick={toggleMenu}>
             Contact Us
           </Link>
         </div>

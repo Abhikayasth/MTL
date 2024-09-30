@@ -23,9 +23,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact-form" element={<ContactForm />} />
           <Route path="/apply" element={<ApplyPage />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/feedback" element={<FeedbackForm />} />
-          <Route path="/notification" element={<Notification />} />
           <Route path="/faqs" element={<FaqPage />} />
+          <Route path="/notification" element={<Notification />} />
+          <Route path="/services" element={<ApplyPage />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+
         </Routes>
       </main>
       <Footer />
