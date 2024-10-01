@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { FaHome, FaBusinessTime, FaCar, FaMoneyCheckAlt } from 'react-icons/fa';
 import { MdHealthAndSafety, MdOutlineHomeWork } from 'react-icons/md';
@@ -41,7 +41,7 @@ const ApplyPage = () => {
   };
 
   // Navigate to Contact form when applying
-  const handleApplyNow = (type) => {
+  const handleApplyNow = () => {
     const selectedType = selectedLoan || selectedInsurance;
     if (selectedType) {
       navigate('/contact-form', { state: { type: selectedType } });
@@ -74,7 +74,7 @@ const ApplyPage = () => {
               <p className="text-2xl font-bold mb-2">{loan.name}</p>
               <p className="text-sm">{loan.description}</p>
               <button
-                onClick={() => handleApplyNow('loan')}
+                onClick={handleApplyNow} // Call function directly here
                 className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition duration-300"
               >
                 Apply
@@ -101,7 +101,7 @@ const ApplyPage = () => {
               <p className="text-2xl font-bold mb-2">{insurance.name}</p>
               <p className="text-sm">{insurance.description}</p>
               <button
-                onClick={() => handleApplyNow('insurance')}
+                onClick={handleApplyNow} // Call function directly here
                 className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition duration-300"
               >
                 Apply

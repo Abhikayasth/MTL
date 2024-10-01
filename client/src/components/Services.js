@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { FaHome, FaUserAlt, FaBuilding, FaMoneyBillWave, FaCar, FaRedo, FaShieldAlt, FaHeart, FaCarAlt, FaSuitcase, FaUmbrella } from 'react-icons/fa';
 
@@ -22,9 +22,17 @@ const insuranceCategories = [
 
 const LoanCategories = () => {
   const navigate = useNavigate();
+  const scrollRef = useRef(null); // Reference to the scroll container
 
   const handleLearnMore = () => {
     navigate('/contact-form');
+  };
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -scrollRef.current.clientWidth : scrollRef.current.clientWidth;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -43,21 +51,32 @@ const LoanCategories = () => {
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12">
           Discover Our Premium Loan & Insurance Solutions
         </h2>
-        <div className="relative overflow-x-auto">
-          <div className="flex gap-8 p-4">
+        <div className="relative overflow-hidden">
+          {/* Left Arrow */}
+          <button 
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 z-10 shadow hover:bg-gray-200" 
+            onClick={() => scroll('left')}
+          >
+            <span className="text-teal-600">&lt;</span>
+          </button>
+          {/* Categories Container */}
+          <div 
+            ref={scrollRef} 
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory py-4 scrollbar-hide"
+          >
             {loanCategories.concat(insuranceCategories).map((item, index) => (
               <div
                 key={index}
-                className="bg-white p-8 shadow-lg rounded-xl hover:shadow-2xl transition-transform duration-500 transform hover:scale-105 relative overflow-hidden min-w-[300px]"
+                className="bg-white p-8 shadow-lg rounded-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:bg-gradient-to-br hover:from-teal-500 hover:to-blue-500 hover:text-white relative overflow-hidden min-w-[250px] snap-start"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 opacity-20 rounded-full"></div>
-                <div className="relative z-10 flex items-center justify-center mb-4">
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 opacity-10 rounded-full"></div>
+                <div className="relative z-10 flex items-center justify-center mb-4 transform transition-all duration-300 hover:rotate-12">
                   {item.icon}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 relative z-10">
+                <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 hover:text-white relative z-10">
                   {item.name}
                 </h3>
-                <p className="mb-6 text-gray-700 relative z-10">
+                <p className="mb-6 text-gray-700 hover:text-white relative z-10">
                   {item.description}
                 </p>
                 <button
@@ -69,6 +88,13 @@ const LoanCategories = () => {
               </div>
             ))}
           </div>
+          {/* Right Arrow */}
+          <button 
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 z-10 shadow hover:bg-gray-200" 
+            onClick={() => scroll('right')}
+          >
+            <span className="text-teal-600">&gt;</span>
+          </button>
         </div>
       </div>
     </section>

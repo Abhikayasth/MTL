@@ -10,38 +10,38 @@ const FaqPage = () => {
   const faqs = [
     {
       question: 'What services do you offer?',
-      answer: 'type of loan 1) Home loan , 2) Personal loan , 3) businesses loan , 4) loan against property , 5) car loan , 7) resale home loan , 8) Bank transfer and top up loan and also all type of insurance available'
+      answer: 'We offer various types of loans including: Home Loan, Personal Loan, Business Loan, Loan Against Property, Car Loan, Resale Home Loan, Bank Transfer and Top-Up Loan, and all types of Insurance.',
     },
     {
       question: 'How can I join your team?',
-      answer: 'You can join our team by go on the contact page and send message through our website and submitting an application for the desired role.  and direct conatact on this number :- 9033409781'
+      answer: 'You can join our team by visiting the contact page, sending us a message through our website, or directly contacting us at 9033409781.',
     },
     {
       question: 'How do I contact support?',
-      answer: 'You can reach out to our support team via the contact form on our website or by emailing roshanfiremarshal@gmail.com '
+      answer: 'Reach out to our support team via the contact form on our website or by emailing roshanfiremarshal@gmail.com.',
     },
     {
       question: 'What are your pricing plans?',
-      answer: 'Our pricing plans are customizable based on the services you need. Contact us for a free quote.'
-    }
+      answer: 'Our pricing plans are customizable based on the services you need. Contact us for a free quote.',
+    },
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <h1 className="text-4xl font-bold text-center mb-8">Frequently Asked Questions</h1>
+    <div className="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+      <h1 className="text-3xl font-bold text-center mb-6 text-blue-600">Frequently Asked Questions</h1>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="border-b-2 pb-4 cursor-pointer"
+            className={`border-b-2 pb-4 cursor-pointer transition duration-300 ease-in-out ${selectedQuestion === index ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
             onClick={() => toggleQuestion(index)}
           >
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-semibold">{faq.question}</h2>
-              <span className="text-xl">{selectedQuestion === index ? '-' : '+'}</span>
+              <h2 className="text-lg font-semibold text-gray-800">{faq.question}</h2>
+              <span className="text-lg text-gray-600">{selectedQuestion === index ? '-' : '+'}</span>
             </div>
             {selectedQuestion === index && (
-              <p className="mt-2 text-gray-700">{faq.answer}</p>
+              <p className="mt-2 text-gray-700 text-sm">{faq.answer}</p>
             )}
           </div>
         ))}

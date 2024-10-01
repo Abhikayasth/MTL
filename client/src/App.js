@@ -9,9 +9,9 @@ import Testimonials from './components/Testimonials';
 import ContactUs from './components/ContactUs';
 import ContactForm from './components/ContactForm'; // Renamed earlier
 import ApplyPage from './components/ApplyPage'; // Create this component
-import FeedbackForm from './components/FeedbackForm'; // Import FeedbackForm
-import Notification from './components/Notification'; // Import NotificationPage
 import FaqPage from './components/FaqPage';
+import TermsAndConditions from './components/TermsConditions'; // New component
+import PrivacyPolicy from './components/PrivacyPolicy'; // New component
 import './App.css';
 
 function App() {
@@ -24,13 +24,12 @@ function App() {
           <Route path="/contact-form" element={<ContactForm />} />
           <Route path="/apply" element={<ApplyPage />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/feedback" element={<FeedbackForm />} />
           <Route path="/faqs" element={<FaqPage />} />
-          <Route path="/notification" element={<Notification />} />
-          <Route path="/services" element={<ApplyPage />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact-us" element={<ContactUs />} />
-
+          <Route path="/terms-of-service" element={<TermsAndConditions />} /> {/* New route */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* New route */}
         </Routes>
       </main>
       <Footer />

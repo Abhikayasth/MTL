@@ -65,17 +65,17 @@ const ContactForm = () => {
       </div>
 
       <div className="relative container mx-auto text-center px-4">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
           Contact Us for Your Loan Needs
         </h1>
-        <p className="text-lg text-gray-200 mb-8">
+        <p className="text-lg text-gray-200 mb-6">
           Fill out the form below to get in touch with us. Our experts will
           respond promptly to help with your loan inquiries.
         </p>
 
         <div className="max-w-lg mx-auto">
           <form
-            className="bg-white p-8 rounded-xl shadow-lg space-y-6 relative"
+            className="bg-white p-6 md:p-8 rounded-xl shadow-lg space-y-6 relative"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="_subject" value="New Contact Inquiry" />
@@ -93,7 +93,7 @@ const ContactForm = () => {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
                   placeholder="Your Full Name"
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -110,7 +110,7 @@ const ContactForm = () => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
                   placeholder="Your Contact Number"
                   onChange={(e) => setPhone(e.target.value)}
                   required
@@ -127,7 +127,7 @@ const ContactForm = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
                   placeholder="Your Email Address"
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -145,8 +145,8 @@ const ContactForm = () => {
               <textarea
                 id="message"
                 name="message"
-                rows="6"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                rows="4"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
                 placeholder="How can we help you?"
                 onChange={(e) => setMessage(e.target.value)}
                 required
@@ -163,7 +163,7 @@ const ContactForm = () => {
               </label>
               <select
                 id="loan-options"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
                 onChange={handleSelectChange}
               >
                 <option value="home-loan">Home Loan</option>
@@ -177,7 +177,6 @@ const ContactForm = () => {
                 <option value="bank-transfer-top-up-loan">
                   Bank Transfer & Top-Up Loan
                 </option>
-
                 {/* Insurance Categories */}
                 <option value="health-insurance">Health Insurance</option>
                 <option value="life-insurance">Life Insurance</option>
@@ -214,11 +213,11 @@ const ContactForm = () => {
               <p className="block text-sm font-semibold text-gray-700 mb-2">
                 How would you like us to contact you?
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6">
                 {/* WhatsApp */}
                 <button
                   type="button"
-                  className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-transform duration-300 transform hover:scale-105"
+                  className="bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-transform duration-300 transform hover:scale-105 flex items-center justify-center"
                   onClick={() => {
                     if (!name || !phone) {
                       alert("Please Provide Your Name and Phone Number.");
@@ -237,38 +236,29 @@ const ContactForm = () => {
                   <i className="fab fa-whatsapp mr-2"></i> Contact via WhatsApp
                 </button>
 
-                {/* Direct Call */}
-                {/* <button
-                  type="button"
-                  className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-transform duration-300 transform hover:scale-105"
-                  onClick={() => window.open('tel:9033409781')}
-                >
-                  <i className="fas fa-phone mr-2"></i> Direct Call
-                </button> */}
-
                 {/* Email */}
                 <button
                   type="button"
-                  className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-transform duration-300 transform hover:scale-105"
+                  className="bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-transform duration-300 transform hover:scale-105 flex items-center justify-center"
                   onClick={() => {
-                    if (!name || !phone) {
-                      alert("Please Provide Your Name and Phone Number.");
-                      return;
-                    } else {
-                      const subject = "Loan Inquiry";
-                      const body = constructMessage();
-                      window.open(
-                        `mailto:roshanfiremarshal@gmail.com?subject=${encodeURIComponent(
-                          subject
-                        )}&body=${encodeURIComponent(body)}`
-                      );
-                    }
+                    const mailtoLink = `mailto:info@quantumsparkagency.com?subject=New Contact Inquiry&body=${encodeURIComponent(
+                      constructMessage()
+                    )}`;
+                    window.open(mailtoLink, "_blank");
                   }}
                 >
                   <i className="fas fa-envelope mr-2"></i> Contact via Email
                 </button>
               </div>
             </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105"
+            >
+              Submit Inquiry
+            </button>
           </form>
         </div>
       </div>

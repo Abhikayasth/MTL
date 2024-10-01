@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
@@ -29,7 +29,7 @@ const ContactUs = () => {
 
       {/* Content */}
       <div className="relative container mx-auto text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
           Get in Touch with Us
         </h2>
         <p className="text-lg md:text-xl text-white mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -39,7 +39,7 @@ const ContactUs = () => {
         {/* Contact Information */}
         <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mb-12">
           <div className="flex items-center text-white">
-            <FaEnvelope size={28} className="mr-3" />
+            <FaEnvelope size={28} className="mr-3 hover:scale-110 transition-transform duration-300" />
             <span>
               Email us at:{' '}
               <a
@@ -51,7 +51,7 @@ const ContactUs = () => {
             </span>
           </div>
           <div className="flex items-center text-white">
-            <FaPhone size={28} className="mr-3" />
+            <FaPhone size={28} className="mr-3 hover:scale-110 transition-transform duration-300" />
             <span>
               Call us at:{' '}
               <a
@@ -63,7 +63,7 @@ const ContactUs = () => {
             </span>
           </div>
           <div className="flex items-center text-white">
-            <FaMapMarkerAlt size={28} className="mr-3" />
+            <FaMapMarkerAlt size={28} className="mr-3 hover:scale-110 transition-transform duration-300" />
             <span>
               Location:{' '}
               <span className="hover:text-teal-300">Vadodara, Gujarat</span>
@@ -72,9 +72,7 @@ const ContactUs = () => {
         </div>
 
         <p className="text-lg md:text-xl text-white mb-12 max-w-2xl mx-auto leading-relaxed">
-          Ready to take the next step? Click the button below to reach out to us
-          and explore how we can help you with our comprehensive range of
-          services. Our team is here to guide you every step of the way.
+          Ready to take the next step? Click the button below to reach out to us and explore how we can help you with our comprehensive range of services. Our team is here to guide you every step of the way.
         </p>
         <button
           onClick={handleJoinUs}
