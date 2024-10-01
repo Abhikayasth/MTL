@@ -87,7 +87,7 @@ const HeroSection = () => {
             Apply Now
           </Link>
           <Link
-            to="/contact-form"
+            to="/contact-us"
             className="bg-transparent border border-white font-semibold text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full hover:bg-white hover:text-blue-600 transition-transform duration-300 transform hover:scale-105"
           >
             Contact Us
