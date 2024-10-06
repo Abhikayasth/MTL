@@ -45,6 +45,7 @@ const ContactUs = () => {
               <a
                 href="mailto:roshanfiremarshal@gmail.com"
                 className="underline hover:text-teal-300"
+                aria-label="Email us at roshanfiremarshal@gmail.com"
               >
                 roshanfiremarshal@gmail.com
               </a>
@@ -57,6 +58,7 @@ const ContactUs = () => {
               <a
                 href="tel:+919033409781"
                 className="underline hover:text-teal-300"
+                aria-label="Call us at +91 9033409781"
               >
                 +91 9033409781
               </a>
@@ -77,6 +79,7 @@ const ContactUs = () => {
         <button
           onClick={handleJoinUs}
           className="bg-teal-600 text-white py-3 px-8 rounded-full hover:bg-teal-700 transition-transform duration-300 transform hover:scale-105 shadow-lg"
+          aria-label="Join us for more details"
         >
           Join Us for More Details
         </button>

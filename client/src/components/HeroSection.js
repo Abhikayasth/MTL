@@ -9,12 +9,36 @@ import image6 from '../images/hero-bg5.jpg';
 
 // Image slides array with loan descriptions
 const slides = [
-  { img: image1, text: 'Home Loan: "Own your dream home today! Get easy approvals and flexible EMI options."' },
-  { img: image2, text: 'Business Loan: "Expand your business effortlessly with customized loan options tailored to your needs."' },
-  { img: image3, text: 'Personal Loan: "Get fast personal loans to meet your urgent needs—simple and hassle-free process."' },
-  { img: image4, text: 'Personal Loan: "Get fast personal loans to meet your urgent needs—simple and hassle-free process."' },
-  { img: image5, text: 'Personal Loan: "Get fast personal loans to meet your urgent needs—simple and hassle-free process."' },
-  { img: image6, text: 'Personal Loan: "Get fast personal loans to meet your urgent needs—simple and hassle-free process."' },
+  {
+    img: image1,
+    alt: 'Home Loan - Dream Home',
+    text: 'Home Loan: "Own your dream home today! Get easy approvals and flexible EMI options."',
+  },
+  {
+    img: image2,
+    alt: 'Business Loan - Expand Your Business',
+    text: 'Business Loan: "Expand your business effortlessly with customized loan options tailored to your needs."',
+  },
+  {
+    img: image3,
+    alt: 'Personal Loan - Fast Approvals',
+    text: 'Personal Loan: "Get fast personal loans to meet your urgent needs—simple and hassle-free process."',
+  },
+  {
+    img: image4,
+    alt: 'Personal Loan - Fast Approvals',
+    text: 'Personal Loan: "Get fast personal loans to meet your urgent needs—simple and hassle-free process."',
+  },
+  {
+    img: image5,
+    alt: 'Personal Loan - Fast Approvals',
+    text: 'Personal Loan: "Get fast personal loans to meet your urgent needs—simple and hassle-free process."',
+  },
+  {
+    img: image6,
+    alt: 'Personal Loan - Fast Approvals',
+    text: 'Personal Loan: "Get fast personal loans to meet your urgent needs—simple and hassle-free process."',
+  },
 ];
 
 const HeroSection = () => {
@@ -34,8 +58,10 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-r from-blue-600 to-teal-500 text-white py-14 md:py-26 flex flex-col md:flex-row items-center overflow-hidden">
-      
+    <section
+      className="relative bg-gradient-to-r from-blue-600 to-teal-500 text-white py-14 md:py-26 flex flex-col md:flex-row items-center overflow-hidden"
+      aria-labelledby="hero-title"
+    >
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black opacity-60 md:opacity-50"></div>
 
@@ -50,8 +76,10 @@ const HeroSection = () => {
               key={index}
               className="flex-shrink-0 w-full h-56 sm:h-64 md:h-[60vh] bg-cover bg-center flex justify-center items-center"
               style={{ backgroundImage: `url(${slide.img})` }}
+              role="img"
+              aria-label={slide.alt}
             >
-              <div className="bg-black bg-opacity-40 p-4 sm:p-6 md:p-10 text-center">
+              <div className="bg-black bg-opacity-40 p-4 sm:p-6 md:p-10 text-center animate-fadeIn">
                 <p className="text-base sm:text-lg md:text-2xl font-semibold">{slide.text}</p>
               </div>
             </div>
@@ -73,7 +101,7 @@ const HeroSection = () => {
 
       {/* Hero Text and Call to Action */}
       <div className="relative flex-1 w-full md:w-1/3 text-center px-4 sm:px-6 md:px-12 flex flex-col justify-center items-center space-y-3 sm:space-y-4 md:space-y-6 z-10 mt-8 md:mt-0">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight mb-2 sm:mb-4">
+        <h1 id="hero-title" className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight mb-2 sm:mb-4 animate-slideIn">
           Find the Perfect Loan Solution for You
         </h1>
         <p className="text-sm sm:text-base md:text-xl mb-4 sm:mb-6">
@@ -82,18 +110,22 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
           <Link
             to="/apply"
-            className="bg-white text-blue-600 font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-full shadow-lg hover:bg-gray-100 transition-transform duration-300 transform hover:scale-105"
+            className="bg-white text-blue-600 font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-full shadow-lg hover:bg-gray-100 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl animate-bounce"
           >
             Apply Now
           </Link>
           <Link
             to="/contact-us"
-            className="bg-transparent border border-white font-semibold text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full hover:bg-white hover:text-blue-600 transition-transform duration-300 transform hover:scale-105"
+            className="bg-transparent border border-white font-semibold text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full hover:bg-white hover:text-blue-600 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl animate-bounce"
           >
             Contact Us
           </Link>
         </div>
       </div>
+
+      {/* Decorative Shapes */}
+      <div className="absolute top-0 left-0 w-32 h-32 bg-yellow-400 rounded-full opacity-50 transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-40 h-40 bg-red-500 rounded-full opacity-50 transform translate-x-1/2 translate-y-1/2 animate-pulse"></div>
     </section>
   );
 };

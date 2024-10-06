@@ -1,11 +1,18 @@
 import React from 'react';
-import teamMember from '../images/Roshanbhai.jpeg'; // Replace with your image
+import teamMember from '../images/Roshanbhai.png'; // Replace with your image
 
 const AboutUs = () => {
   return (
-    <div id="about-us" className="bg-gray-50 min-h-screen py-8 px-4 md:px-8 lg:px-16">
+    <div id="about-us" className="relative bg-gray-50 min-h-screen py-8 px-4 md:px-8 lg:px-16 overflow-hidden">
+      {/* Decorative Background Shapes */}
+      <div className="absolute inset-0 z-0">
+        <div className="w-48 h-48 bg-blue-300 rounded-full opacity-50 absolute top-10 left-10 animate-pulse" />
+        <div className="w-32 h-32 bg-green-200 rounded-full opacity-50 absolute top-20 right-10 animate-bounce" />
+        <div className="w-56 h-56 bg-yellow-200 rounded-full opacity-50 absolute bottom-20 left-20 animate-ping" />
+      </div>
+
       {/* Company Background */}
-      <section className="text-center mb-12 md:mb-16">
+      <section className="text-center mb-12 md:mb-16 relative z-10">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-gray-900">
           Discover Who We Are
         </h1>
@@ -15,12 +22,12 @@ const AboutUs = () => {
       </section>
 
       {/* Single Team Member */}
-      <section className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16 mb-12">
-        <div className="w-full md:w-1/3 lg:w-1/4 flex justify-center transform transition-transform duration-500 hover:scale-105">
+      <section className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16 mb-12 relative z-10">
+        <div className="w-full md:w-1/2 lg:w-1/3 flex justify-center transform transition-transform duration-500 hover:scale-105">
           <img
             src={teamMember}
             alt="Our Financial Expert"
-            className="w-4/5 h-auto rounded-lg shadow-xl transform hover:rotate-1 hover:shadow-2xl lg:w-3/4"
+            className="w-4/5 h-auto rounded-lg shadow-xl transform hover:rotate-2 hover:shadow-2xl lg:w-3/4 transition-transform duration-300"
           />
         </div>
         <div className="w-full md:w-2/3 lg:w-3/4 text-left space-y-6">
@@ -40,7 +47,7 @@ const AboutUs = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="text-center mb-12 md:mb-16">
+      <section className="text-center mb-12 md:mb-16 relative z-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-gray-900">
           Our Mission at Shree Gajanan Loan Services
         </h2>
@@ -50,21 +57,21 @@ const AboutUs = () => {
       </section>
 
       {/* Values Section */}
-      <section className="text-center mb-12 md:mb-16">
+      <section className="text-center mb-12 md:mb-16 relative z-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-gray-900">
           Our Core Values
         </h2>
         <ul className="list-disc text-left text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mx-auto max-w-3xl lg:max-w-4xl space-y-4 px-4">
-          <li className="transition-transform duration-300 hover:translate-x-2 hover:text-blue-600">
+          <li className="transition-transform duration-300 hover:translate-x-2 hover:text-blue-600 hover:scale-105">
             <span className="font-bold">Integrity:</span> We uphold the highest standards of honesty and transparency.
           </li>
-          <li className="transition-transform duration-300 hover:translate-x-2 hover:text-blue-600">
+          <li className="transition-transform duration-300 hover:translate-x-2 hover:text-blue-600 hover:scale-105">
             <span className="font-bold">Customer-Centric Approach:</span> Your financial goals are at the core of our service.
           </li>
-          <li className="transition-transform duration-300 hover:translate-x-2 hover:text-blue-600">
+          <li className="transition-transform duration-300 hover:translate-x-2 hover:text-blue-600 hover:scale-105">
             <span className="font-bold">Excellence:</span> We strive to deliver the highest quality of service and professionalism.
           </li>
-          <li className="transition-transform duration-300 hover:translate-x-2 hover:text-blue-600">
+          <li className="transition-transform duration-300 hover:translate-x-2 hover:text-blue-600 hover:scale-105">
             <span className="font-bold">Commitment:</span> We are dedicated to providing timely and reliable loan solutions.
           </li>
         </ul>

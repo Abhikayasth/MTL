@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 
 const testimonials = [
@@ -8,22 +8,22 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'het solanki',
+    name: 'Het Solanki',
     review: 'The home loan process was so smooth. Highly recommend!',
     rating: 4,
   },
   {
-    name: 'milind pawar',
+    name: 'Milind Pawar',
     review: 'Fast approval and excellent customer service. Couldn\'t be happier!',
     rating: 5,
   },
   {
-    name: 'yash more',
+    name: 'Yash More',
     review: 'The car loan application was straightforward and quick. Great experience!',
     rating: 4,
   },
   {
-    name: 'Abhi',
+    name: 'Madhav',
     review: 'Friendly staff and easy loan process. I felt supported every step of the way.',
     rating: 5,
   },
@@ -33,7 +33,7 @@ const testimonials = [
     rating: 4,
   },
   {
-    name: 'Kartik',
+    name: 'Aryan',
     review: 'An exceptional experience from start to finish. Highly recommend their services.',
     rating: 5,
   },
@@ -41,17 +41,25 @@ const testimonials = [
 
 const Testimonials = () => {
   const scrollRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   // Auto-scroll functionality
   useEffect(() => {
     const scroll = () => {
-      if (scrollRef.current) {
+      if (!isHovered && scrollRef.current) {
         scrollRef.current.scrollLeft += 1;  // Adjust the scroll speed
       }
     };
     const interval = setInterval(scroll, 50);  // Interval for auto-scroll
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'right' ? 300 : -300; // Adjust scroll amount
+      scrollRef.current.scrollLeft += scrollAmount;
+    }
+  };
 
   return (
     <section id="testimonials" className="bg-gray-50 pt-8 relative overflow-hidden">
@@ -72,6 +80,8 @@ const Testimonials = () => {
           ref={scrollRef}
           className="flex space-x-6 overflow-x-auto scrollbar-hidden pb-4 scroll-smooth"
           style={{ scrollBehavior: 'smooth' }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           {testimonials.map((testimonial, index) => (
             <div
@@ -94,6 +104,19 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
+        {/* Scroll Controls */}
+        <button 
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 z-10 shadow hover:bg-gray-200" 
+          onClick={() => scroll('left')}
+        >
+          <span className="text-teal-600">&lt;</span>
+        </button>
+        <button 
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 z-10 shadow hover:bg-gray-200" 
+          onClick={() => scroll('right')}
+        >
+          <span className="text-teal-600">&gt;</span>
+        </button>
       </div>
     </section>
   );
