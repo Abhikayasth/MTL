@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
         Effective Date: {new Date().toLocaleDateString()}
       </p>
       <p className="mb-4">
-        At Shree Ganan Loan Services, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+        At Shree Gajanan Loan Services, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
       </p>
       
       <h2 className="text-2xl font-semibold mt-6 mb-4">Information We Collect</h2>
@@ -44,9 +44,9 @@ const PrivacyPolicy = () => {
         Depending on your location, you may have the following rights:
       </p>
       <ul className="list-disc pl-6 mb-4">
-        <li>The right to access – You have the right to request copies of your personal data.</li>
-        <li>The right to rectification – You have the right to request that we correct any information you believe is inaccurate.</li>
-        <li>The right to erasure – You have the right to request that we erase your personal data.</li>
+        <li>The right to access You have the right to request copies of your personal data.</li>
+        <li>The right to rectification You have the right to request that we correct any information you believe is inaccurate.</li>
+        <li>The right to erasure You have the right to request that we erase your personal data.</li>
       </ul>
 
       <h2 className="text-2xl font-semibold mt-6 mb-4">Changes to This Privacy Policy</h2>
