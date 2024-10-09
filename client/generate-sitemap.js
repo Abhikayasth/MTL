@@ -7,32 +7,41 @@ const domain = 'https://www.gajananfinance.in/'; // Change this to your actual d
 
 // List of all your important pages (from your React app routes)
 const pages = [
-  { url: '/', changefreq: 'daily', priority: 1.0 },                 // Home
-  { url: '/about-us', changefreq: 'monthly', priority: 0.7 },        // About Us
-  { url: '/services', changefreq: 'monthly', priority: 0.8 },        // Services
-  { url: '/testimonials', changefreq: 'monthly', priority: 0.7 },    // Testimonials
-  { url: '/contact-us', changefreq: 'monthly', priority: 0.8 },      // Contact Us
-  { url: '/contact-form', changefreq: 'monthly', priority: 0.8 },    // Contact Form
-  { url: '/apply', changefreq: 'monthly', priority: 0.8 },           // Apply Page
-  { url: '/faqs', changefreq: 'monthly', priority: 0.7 },            // FAQs
-  { url: '/terms-of-service', changefreq: 'monthly', priority: 0.6 }, // Terms and Conditions
-  { url: '/privacy-policy', changefreq: 'monthly', priority: 0.6 },   // Privacy Policy
+  { url: '/', changefreq: 'daily', priority: 1.0 },
+  { url: '/about-us', changefreq: 'monthly', priority: 0.7 },
+  { url: '/services', changefreq: 'monthly', priority: 0.8 },
+  { url: '/testimonials', changefreq: 'monthly', priority: 0.7 },
+  { url: '/contact-us', changefreq: 'monthly', priority: 0.8 },
+  { url: '/contact-form', changefreq: 'monthly', priority: 0.8 },
+  { url: '/apply', changefreq: 'monthly', priority: 0.8 },
+  { url: '/faqs', changefreq: 'monthly', priority: 0.7 },
+  { url: '/terms-of-service', changefreq: 'monthly', priority: 0.6 },
+  { url: '/privacy-policy', changefreq: 'monthly', priority: 0.6 },
 ];
 
 // Define the path for the sitemap file
 const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
 
-// Create sitemap stream
+// Create a write stream for the sitemap file
 const sitemap = new SitemapStream({ hostname: domain });
 
-// Stream and write to sitemap.xml
-streamToPromise(
-  pages.reduce((stream, page) => stream.write(page), sitemap).end()
-)
-  .then((data) => {
-    fs.writeFileSync(sitemapPath, data.toString());
-    console.log('Sitemap generated successfully!');
-  })
-  .catch((err) => {
-    console.error('Error generating sitemap:', err);
-  });
+// Create a stream to write to the sitemap.xml file
+const writeStream = fs.createWriteStream(sitemapPath);
+
+// Pipe the sitemap data to the file stream
+sitemap.pipe(writeStream);
+
+// Loop through each page and write to the sitemap
+pages.forEach(page => {
+  sitemap.write(page);
+});
+
+// Close the stream when done
+sitemap.end();
+
+// Ensure that the stream is converted to a promise and handle completion
+streamToPromise(sitemap).then(() => {
+  console.log('Sitemap generated successfully!');
+}).catch((err) => {
+  console.error('Error generating sitemap:', err);
+});
