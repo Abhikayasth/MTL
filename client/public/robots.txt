@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
-Sitemap: https://https://www.gajananfinance.in/sitemap.xml
+Sitemap: https://www.gajananfinance.in/sitemap.xml
