@@ -253,12 +253,14 @@ const ContactForm = () => {
             </div>
 
             {/* Submit Button */}
-            // <button
-            //   type="submit"
-            //   className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105"
-            // >
-            //   Submit Inquiry
-            // </button>
+            {/* 
+              <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105"
+            >
+             Submit Inquiry
+            </button>
+            */}
           </form>
         </div>
       </div>
